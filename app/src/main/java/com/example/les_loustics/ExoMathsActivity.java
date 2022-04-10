@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.les_loustics.Classes.Calcul;
 import com.example.les_loustics.Classes.ExoMaths;
+import com.example.les_loustics.db.User;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class ExoMathsActivity extends AppCompatActivity {
     private LinearLayout linear;
     private TextView textViewNiveau;
     private ImageView check, error;
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class ExoMathsActivity extends AppCompatActivity {
 
         textViewNiveau = findViewById(R.id.textViewNiveau);
         textViewNiveau.setText(String.format(getString(R.string.niveau), niveau));
+
+        user = ((MyApplication) this.getApplication()).getCurrentUser();
 
         for(Calcul calcul : exo.getCalculs()) {
             LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_calcul, null);
@@ -72,9 +76,11 @@ public class ExoMathsActivity extends AppCompatActivity {
             }
         }
         if(nbErreurs == 0) {
-            setResult(this.niveau);
-        } else {
-            setResult(-1);
+            user.setEtatNiveau("maths", niveau, 1);
+            intent = new Intent(ExoMathsActivity.this, LevelSelectionActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.putExtra("game_key", "maths");
+            startActivity(intent);
         }
     }
 }

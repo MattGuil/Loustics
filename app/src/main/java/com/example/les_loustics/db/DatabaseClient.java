@@ -50,8 +50,7 @@ public class DatabaseClient {
             super.onCreate(db);
 
             // Pré-remplissage de la BD
-            db.execSQL("INSERT INTO user (nom, prenom, age) VALUES(\"DUPONT\", \"Pierre\", \"10\");");
-            db.execSQL("INSERT INTO user (nom, prenom, age) VALUES(\"DUCHENE\", \"Emma\", \"8\");");
+            db.execSQL("DELETE FROM user");
         }
     };
 
