@@ -52,8 +52,10 @@ public class LevelSelectionActivity extends AppCompatActivity {
             }
         }
 
-        UpdateUser uu = new UpdateUser(user);
-        uu.execute();
+        if(user.getNom() != "") {
+            UpdateUser uu = new UpdateUser(user);
+            uu.execute();
+        }
 
         if(game.equals("maths")) {
             for(int i = 1; i <= Game.getNbNiveauxMaths(); i++) {
