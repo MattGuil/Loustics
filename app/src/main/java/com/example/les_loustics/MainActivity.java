@@ -1,7 +1,9 @@
 package com.example.les_loustics;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Ajouter un événement click à la listView
+        // Selectionner un compte pour jouer
         listUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -65,6 +67,54 @@ public class MainActivity extends AppCompatActivity {
                 User user = adapter.getItem(position);
 
                 jouerAvecCompte(user);
+            }
+        });
+
+        class DeleteUser extends AsyncTask<Void, Void, User> {
+
+            private User user;
+
+            public DeleteUser(User user) {
+                this.user = user;
+            }
+
+            @Override
+            protected User doInBackground(Void... voids) {
+                mDb.getAppDatabase().userDao().delete(user);
+                return user;
+            }
+
+            @Override
+            protected void onPostExecute(User user) {
+                super.onPostExecute(user);
+                Toast.makeText(getApplicationContext(), "Compte supprimé", Toast.LENGTH_LONG).show();
+            }
+        }
+
+        // Supprimer un compte de la liste
+        listUser.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Veux-tu supprimer le compte de " + adapter.getItem(position).getPrenom() + " ?");
+                builder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                        DeleteUser du = new DeleteUser(adapter.getItem(position));
+                        du.execute();
+                        finish();
+                        startActivity(getIntent());
+                    }
+                });
+                builder.setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+                builder.show();
+                return false;
             }
         });
     }
