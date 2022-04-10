@@ -11,9 +11,9 @@ public class User {
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    private String nom;
-    private String prenom;
-    private int age;
+    private String nom = "";
+    private String prenom = "";
+    private int age = 0;
 
     public long getId() { return this.id; }
 

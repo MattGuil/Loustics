@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.les_loustics.db.DatabaseClient;
 import com.example.les_loustics.db.User;
@@ -54,11 +56,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_ADD);
             }
         });
+
+        // Ajouter un événement click à la listView
+        listUser.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Récupération du user cliqué à l'aide de l'adapter
+                User user = adapter.getItem(position);
+
+                jouerAvecCompte(user);
+            }
+        });
+    }
+
+    public void jouerAvecCompte(User user) {
+        ((MyApplication) this.getApplication()).setCurrentUser(user);
+        Intent intent = new Intent(MainActivity.this, GameSelectionActivity.class);
+        startActivity(intent);
     }
 
     public void jouerSansCompte(View view) {
+        ((MyApplication) this.getApplication()).setCurrentUser(new User());
         Intent intent = new Intent(MainActivity.this, GameSelectionActivity.class);
-        intent.putExtra("prenom_key", "Anonyme");
         startActivity(intent);
     }
 

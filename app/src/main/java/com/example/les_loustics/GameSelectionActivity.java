@@ -7,18 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.les_loustics.db.User;
+
 public class GameSelectionActivity extends AppCompatActivity {
 
-    public static final String PRENOM_KEY = "prenom_key";
+    User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_selection);
 
-        String prenom = getIntent().getStringExtra(PRENOM_KEY);
+        user = ((MyApplication) this.getApplication()).getCurrentUser();
+
         TextView salutation = findViewById(R.id.salutation);
-        salutation.setText(String.format(getString(R.string.salutation), prenom));
+        salutation.setText(String.format(getString(R.string.salutation), user.getPrenom()));
     }
 
     public void launchMaths(View view) {
