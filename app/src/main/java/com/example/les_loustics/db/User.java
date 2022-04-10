@@ -17,8 +17,8 @@ public class User {
     private int etatNiveau1Maths = 0;
     private int etatNiveau2Maths = 0;
     private int etatNiveau3Maths = 0;
-    private int etatNiveau1Letters = 0;
-    private int etatNiveau2Letters = 0;
+    private int etatNiveau1English = 0;
+    private int etatNiveau2English = 0;
     private int etatNiveau1Geo = 0;
 
     public long getId() { return this.id; }
@@ -55,12 +55,12 @@ public class User {
         etatNiveau3Maths = etat;
     }
 
-    public void setEtatNiveau1Letters(int etat) {
-        etatNiveau1Letters = etat;
+    public void setEtatNiveau1English(int etat) {
+        etatNiveau1English = etat;
     }
 
-    public void setEtatNiveau2Letters(int etat) {
-        etatNiveau2Letters = etat;
+    public void setEtatNiveau2English(int etat) {
+        etatNiveau2English = etat;
     }
 
     public void setEtatNiveau1Geo(int etat) {
@@ -79,12 +79,12 @@ public class User {
         return etatNiveau3Maths;
     }
 
-    public int getEtatNiveau1Letters() {
-        return etatNiveau1Letters;
+    public int getEtatNiveau1English() {
+        return etatNiveau1English;
     }
 
-    public int getEtatNiveau2Letters() {
-        return etatNiveau2Letters;
+    public int getEtatNiveau2English() {
+        return etatNiveau2English;
     }
 
     public int getEtatNiveau1Geo() {
@@ -107,9 +107,9 @@ public class User {
             case "letters":
                 switch(niveau) {
                     case 1:
-                        return getEtatNiveau1Letters();
+                        return getEtatNiveau1English();
                     case 2:
-                        return getEtatNiveau2Letters();
+                        return getEtatNiveau2English();
                     default:
                         return 0;
                 }
@@ -145,10 +145,10 @@ public class User {
             case "letters":
                 switch(niveau) {
                     case 1:
-                        setEtatNiveau1Letters(etat);
+                        setEtatNiveau1English(etat);
                         break;
                     case 2:
-                        setEtatNiveau2Letters(etat);
+                        setEtatNiveau2English(etat);
                         break;
                     default:
                         break;

@@ -35,9 +35,9 @@
             <ImageView
                 android:layout_width="200sp"
                 android:layout_height="200sp"
-                android:src="@drawable/abc"
+                android:src="@drawable/english"
                 android:layout_margin="20sp"
-                android:onClick="launchLetters"/>
+                android:onClick="launchEnglish"/>
 
             <ImageView
                 android:layout_width="200sp"

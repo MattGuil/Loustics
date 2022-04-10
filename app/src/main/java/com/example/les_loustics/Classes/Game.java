@@ -10,7 +10,7 @@ public class Game {
         return nbNiveauxMaths;
     }
 
-    public static int getNbNiveauxLetters() {
+    public static int getNbNiveauxEnglish() {
         return nbNiveauxLetters;
     }
 

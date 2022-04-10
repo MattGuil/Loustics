@@ -30,9 +30,9 @@ public class GameSelectionActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void launchLetters(View view) {
+    public void launchEnglish(View view) {
         Intent intent = new Intent(GameSelectionActivity.this, LevelSelectionActivity.class);
-        intent.putExtra("game_key", "letters");
+        intent.putExtra("game_key", "english");
         startActivity(intent);
     }
 

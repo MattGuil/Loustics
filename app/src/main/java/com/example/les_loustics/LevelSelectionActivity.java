@@ -78,12 +78,12 @@ public class LevelSelectionActivity extends AppCompatActivity {
                 });
                 linear.addView(linearTMP);
             }
-        } else if(game.equals("letters")) {
-            for(int i = 1; i <= Game.getNbNiveauxLetters(); i++) {
+        } else if(game.equals("english")) {
+            for(int i = 1; i <= Game.getNbNiveauxEnglish(); i++) {
                 LinearLayout linearTMP = (LinearLayout) getLayoutInflater().inflate(R.layout.template_level, null);
                 Button btnLevel = (Button) linearTMP.findViewById(R.id.btnLevel);
                 btnLevel.setText("Niveau " + i);
-                if(user.getEtatNiveau("letters", i) == 0) {
+                if(user.getEtatNiveau("english", i) == 0) {
                     btnLevel.setBackgroundColor(getResources().getColor(R.color.purple_500));
                 } else {
                     btnLevel.setBackgroundColor(getResources().getColor(R.color.green));
