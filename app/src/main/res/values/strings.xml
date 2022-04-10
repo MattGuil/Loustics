@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Les Loustics</string>
+
+    <string name="salutation">Salut %s,\nChoisis une activité !</string>
+
+    <string name="niveau">Niveau %d</string>
+</resources>

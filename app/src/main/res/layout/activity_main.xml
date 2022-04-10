@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ListView
+        android:id="@+id/listUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/buttons"/>
+
+    <LinearLayout
+        android:id="@+id/buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp">
+
+        <Button
+            android:id="@+id/btn_creer_un_compte"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:text="Créer un compte"/>
+
+        <Button
+            android:id="@+id/btn_jouer_sans_compte"
+            android:layout_width="250sp"
+            android:layout_height="wrap_content"
+            android:text="Jouer sans compte"
+            android:onClick="jouerSansCompte"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
