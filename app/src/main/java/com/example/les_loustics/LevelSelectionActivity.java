@@ -117,6 +117,15 @@ public class LevelSelectionActivity extends AppCompatActivity {
                 } else {
                     btnLevel.setBackgroundColor(getResources().getColor(R.color.green));
                 }
+                int niveau = i;
+                btnLevel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(LevelSelectionActivity.this, ExoGeoActivity.class);
+                        intent.putExtra("niveau_key", niveau);
+                        startActivity(intent);
+                    }
+                });
                 linear.addView(linearTMP);
             }
         }

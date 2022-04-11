@@ -11,9 +11,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.les_loustics.Classes.Calcul;
 import com.example.les_loustics.Classes.ExoEnglish;
-import com.example.les_loustics.Classes.ExoMaths;
 import com.example.les_loustics.Classes.QuestionCouleur;
 import com.example.les_loustics.db.User;
 
