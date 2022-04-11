@@ -66,13 +66,20 @@ public class ExoMathsActivity extends AppCompatActivity {
             check = v.findViewById(R.id.check);
             error = v.findViewById(R.id.error);
             EditText resultat = v.findViewById(R.id.template_resultat);
-            if (calculs.get(i).getResultat() != Integer.parseInt(resultat.getText().toString())) {
+
+            if(resultat.getText().toString().isEmpty()) {
+                resultat.setError("Ce champ a besoin d'une valeur");
+                resultat.requestFocus();
+                return;
+            }
+
+            if (calculs.get(i).getResultat() == Integer.parseInt(resultat.getText().toString())) {
+                error.setVisibility(View.GONE);
+                check.setVisibility(View.VISIBLE);
+            } else {
                 check.setVisibility(View.GONE);
                 error.setVisibility(View.VISIBLE);
                 nbErreurs++;
-            } else {
-                error.setVisibility(View.GONE);
-                check.setVisibility(View.VISIBLE);
             }
         }
         if(nbErreurs == 0) {

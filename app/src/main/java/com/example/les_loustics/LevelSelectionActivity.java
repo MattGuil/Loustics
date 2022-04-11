@@ -40,7 +40,7 @@ public class LevelSelectionActivity extends AppCompatActivity {
         user = ((MyApplication) this.getApplication()).getCurrentUser();
 
         tvGame = findViewById(R.id.textViewGame);
-        tvGame.setText(game.toUpperCase(Locale.ROOT));
+        tvGame.setText(game.substring(0, 1).toUpperCase() + game.substring(1).toLowerCase());
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());

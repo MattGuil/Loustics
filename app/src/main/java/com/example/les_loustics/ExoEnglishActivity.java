@@ -95,6 +95,13 @@ public class ExoEnglishActivity extends AppCompatActivity {
             check = v.findViewById(R.id.check);
             error = v.findViewById(R.id.error);
             EditText resultat = v.findViewById(R.id.template_color_result);
+
+            if(resultat.getText().toString().isEmpty()) {
+                resultat.setError("Ce champ a besoin d'une valeur");
+                resultat.requestFocus();
+                return;
+            }
+
             if (resultat.getText().toString().equals(questions.get(i).getCouleur())) {
                 error.setVisibility(View.GONE);
                 check.setVisibility(View.VISIBLE);

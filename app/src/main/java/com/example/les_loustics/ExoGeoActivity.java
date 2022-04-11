@@ -62,6 +62,13 @@ public class ExoGeoActivity extends AppCompatActivity {
             check = v.findViewById(R.id.check);
             error = v.findViewById(R.id.error);
             EditText reponse = v.findViewById(R.id.template_reponse);
+
+            if(reponse.getText().toString().isEmpty()) {
+                reponse.setError("Ce champ a besoin d'une valeur");
+                reponse.requestFocus();
+                return;
+            }
+
             if (reponse.getText().toString().toLowerCase(Locale.ROOT).equals(questions.get(i).getReponse())) {
                 error.setVisibility(View.GONE);
                 check.setVisibility(View.VISIBLE);

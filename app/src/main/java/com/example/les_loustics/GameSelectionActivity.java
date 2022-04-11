@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,8 +21,9 @@ public class GameSelectionActivity extends AppCompatActivity {
 
         user = ((MyApplication) this.getApplication()).getCurrentUser();
 
+        String sourceString = "Salut <b>" + user.getPrenom() + "</b>,<br>Choisis une activité !";
         TextView salutation = findViewById(R.id.salutation);
-        salutation.setText(String.format(getString(R.string.salutation), user.getPrenom()));
+        salutation.setText(Html.fromHtml(sourceString));
     }
 
     public void launchMaths(View view) {

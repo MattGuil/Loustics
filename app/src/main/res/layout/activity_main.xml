@@ -36,14 +36,16 @@
             android:id="@+id/btn_creer_un_compte"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
-            android:text="Créer un compte"/>
+            android:text="Créer un compte"
+            android:drawableLeft="@drawable/plus"/>
 
         <Button
             android:id="@+id/btn_jouer_sans_compte"
             android:layout_width="250sp"
             android:layout_height="wrap_content"
             android:text="Jouer sans compte"
-            android:onClick="jouerSansCompte"/>
+            android:onClick="jouerSansCompte"
+            android:drawableLeft="@drawable/anonymous"/>
 
     </LinearLayout>
 

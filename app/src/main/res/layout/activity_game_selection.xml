@@ -20,30 +20,33 @@
 
             <TextView
                 android:id="@+id/salutation"
-                android:layout_width="wrap_content"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
-                android:textAlignment="center"/>
+                android:gravity="center"
+                android:text="Salut, choisis une activité !"/>
 
             <ImageView
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:src="@drawable/mathematics"
-                android:layout_margin="20sp"
+                android:layout_margin="10sp"
                 android:onClick="launchMaths"/>
 
             <ImageView
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:src="@drawable/english"
-                android:layout_margin="20sp"
+                android:layout_margin="10sp"
                 android:onClick="launchEnglish"/>
 
             <ImageView
                 android:layout_width="200sp"
                 android:layout_height="200sp"
                 android:src="@drawable/geography"
-                android:layout_margin="20sp"
+                android:layout_margin="10sp"
                 android:onClick="launchGeo"/>
 
         </LinearLayout>
