@@ -51,7 +51,7 @@ public class AddUserActivity extends AppCompatActivity {
         // Récupérer les informations contenues dans les vues
         final String sNom = editTextNomView.getText().toString().trim();
         final String sPrenom = editTextPrenomView.getText().toString().trim();
-        final int sAge = Integer.parseInt(editTextAgeView.getText().toString().trim());
+        final String sAge = editTextAgeView.getText().toString().trim();
 
         // Vérifier les informations fournies par l'utilisateur
         if(sNom.isEmpty()) {
@@ -62,7 +62,13 @@ public class AddUserActivity extends AppCompatActivity {
 
         if(sPrenom.isEmpty()) {
             editTextPrenomView.setError("Quel est ton prénom ?");
-            editTextNomView.requestFocus();
+            editTextPrenomView.requestFocus();
+            return;
+        }
+
+        if(sAge.isEmpty()) {
+            editTextAgeView.setError("Quel âge as-tu ?");
+            editTextAgeView.requestFocus();
             return;
         }
 
@@ -76,7 +82,7 @@ public class AddUserActivity extends AppCompatActivity {
                 User user = new User();
                 user.setNom(sNom);
                 user.setPrenom(sPrenom);
-                user.setAge(sAge);
+                user.setAge(Integer.parseInt(sAge));
 
                 // l'ajouter à la database
                 long id = mDb.getAppDatabase().userDao().insert(user);
