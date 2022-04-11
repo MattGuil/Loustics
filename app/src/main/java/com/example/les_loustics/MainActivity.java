@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     // VIEW
     private Button buttonAdd;
     private ListView listUser;
+    private TextView textViewAucunCompte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         // Lier l'adapter au listView
         adapter = new UsersAdapter(this, new ArrayList<User>());
         listUser.setAdapter(adapter);
+
+        // TextView à afficher si aucun compte n'est enregitré
+        textViewAucunCompte = findViewById(R.id.aucun_compte);
 
         // Ajouter un événement au bouton d'ajout
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -135,9 +139,11 @@ public class MainActivity extends AppCompatActivity {
         // Classe asynchrone permettant de récupérer des utilisateurs et de mettre à jour la listView de l'activité
         class GetUsers extends AsyncTask<Void, Void, List<User>> {
 
+            List<User> userList;
+
             @Override
             protected List<User> doInBackground(Void... voids) {
-                List<User> userList = mDb.getAppDatabase().userDao().getAll();
+                userList = mDb.getAppDatabase().userDao().getAll();
                 return userList;
             }
 
@@ -148,6 +154,13 @@ public class MainActivity extends AppCompatActivity {
                 // Mettre à jour l'adapter avec la liste des utilisateurs
                 adapter.clear();
                 adapter.addAll(users);
+
+                // Afficher un message si il n'y a auncun utilisateur enregistré
+                if(users.isEmpty()) {
+                    textViewAucunCompte.setVisibility(View.VISIBLE);
+                } else {
+                    textViewAucunCompte.setVisibility(View.GONE);
+                }
 
                 // Notifier l'adapter des changements dans la source
                 adapter.notifyDataSetChanged();

@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/aucun_compte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Aucun compte enregistré pour le moment"
+        android:gravity="center"
+        android:padding="60px"
+        android:visibility="gone"/>
+
     <ListView
         android:id="@+id/listUser"
         android:layout_width="match_parent"
