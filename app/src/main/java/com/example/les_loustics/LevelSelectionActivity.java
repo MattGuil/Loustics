@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.les_loustics.Classes.Game;
 import com.example.les_loustics.db.DatabaseClient;
 import com.example.les_loustics.db.User;
+
+import java.util.Locale;
 
 public class LevelSelectionActivity extends AppCompatActivity {
 
@@ -24,6 +27,8 @@ public class LevelSelectionActivity extends AppCompatActivity {
     public static final int RETURNGEO_REQUEST = 3;
     private LinearLayout linear;
     User user;
+    Intent intent;
+    TextView tvGame;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,9 @@ public class LevelSelectionActivity extends AppCompatActivity {
         String game = getIntent().getStringExtra(GAME_KEY);
         linear = findViewById(R.id.levelsList);
         user = ((MyApplication) this.getApplication()).getCurrentUser();
+
+        tvGame = findViewById(R.id.textViewGame);
+        tvGame.setText(game.toUpperCase(Locale.ROOT));
 
         // Récupération du DatabaseClient
         mDb = DatabaseClient.getInstance(getApplicationContext());
@@ -71,7 +79,7 @@ public class LevelSelectionActivity extends AppCompatActivity {
                 btnLevel.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(LevelSelectionActivity.this, ExoMathsActivity.class);
+                        intent = new Intent(LevelSelectionActivity.this, ExoMathsActivity.class);
                         intent.putExtra("niveau_key", niveau);
                         startActivity(intent);
                     }
@@ -88,6 +96,15 @@ public class LevelSelectionActivity extends AppCompatActivity {
                 } else {
                     btnLevel.setBackgroundColor(getResources().getColor(R.color.green));
                 }
+                int niveau = i;
+                btnLevel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(LevelSelectionActivity.this, ExoEnglishActivity.class);
+                        intent.putExtra("niveau_key", niveau);
+                        startActivity(intent);
+                    }
+                });
                 linear.addView(linearTMP);
             }
         } else if(game.equals("geo")) {

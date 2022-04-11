@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LesLoustics">
         <activity
+            android:name=".ExoEnglishActivity"
+            android:exported="false" />
+        <activity
             android:name=".FelicitationActivity"
             android:exported="false" />
         <activity

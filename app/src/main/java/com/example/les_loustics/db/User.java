@@ -104,7 +104,7 @@ public class User {
                     default:
                         return 0;
                 }
-            case "letters":
+            case "english":
                 switch(niveau) {
                     case 1:
                         return getEtatNiveau1English();
@@ -142,7 +142,7 @@ public class User {
                         break;
                 }
                 break;
-            case "letters":
+            case "english":
                 switch(niveau) {
                     case 1:
                         setEtatNiveau1English(etat);
