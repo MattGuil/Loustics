@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LesLoustics">
         <activity
+            android:name=".HelpActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExoGeoActivity"
             android:exported="false" />
         <activity

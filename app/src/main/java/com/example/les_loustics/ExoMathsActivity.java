@@ -57,6 +57,12 @@ public class ExoMathsActivity extends AppCompatActivity {
         }
     }
 
+    public void aide(View view) {
+        Intent intent = new Intent(ExoMathsActivity.this, HelpActivity.class);
+        intent.putExtra("game_key", "maths");
+        startActivity(intent);
+    }
+
     public void valider(View view) {
         Intent intent;
         int nbErreurs = 0;

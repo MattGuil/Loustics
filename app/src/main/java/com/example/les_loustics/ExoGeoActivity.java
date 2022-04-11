@@ -53,6 +53,12 @@ public class ExoGeoActivity extends AppCompatActivity {
         }
     }
 
+    public void aide(View view) {
+        Intent intent = new Intent(ExoGeoActivity.this, HelpActivity.class);
+        intent.putExtra("game_key", "geo");
+        startActivity(intent);
+    }
+
     public void valider(View view) {
         Intent intent;
         int nbErreurs = 0;

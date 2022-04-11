@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name" >Les Loustics</string>
 
+    <string name="app_name">Les Loustics</string>
     <string name="niveau">Niveau %d</string>
+
+    <string name="help_maths">Maths : Les Règles</string>
+    <string name="help_english">English : Les Règles</string>
+    <string name="help_geo">Geo : Les Règles</string>
+
+    <string name="rules_maths">Écris le résultat de chaque calcul dans le champ à sa droite (ex : 5 * 2 = 10). Une fois que tu as donné un résultat à chaque calcul, appuies sur le bouton VALIDER pour vérifier tes réponses !</string>
+    <string name="rules_english">Écris la couleur de chaque rectangle en anglais dans le champ à sa droite. Une fois que tu as donné une couleur à chaque rectangle, appuies sur le bouton VALIDER pour vérifier tes réponses !</string>
+    <string name="rules_geo">Réponds aux questions et appuies sur le bouton VALIDER une fois que tu as tout rempli pour vérifier tes réponses !</string>
+
 </resources>

@@ -86,6 +86,12 @@ public class ExoEnglishActivity extends AppCompatActivity {
         }
     }
 
+    public void aide(View view) {
+        Intent intent = new Intent(ExoEnglishActivity.this, HelpActivity.class);
+        intent.putExtra("game_key", "english");
+        startActivity(intent);
+    }
+
     public void valider(View view) {
         Intent intent;
         int nbErreurs = 0;
